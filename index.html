@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Santé Jeunes</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js (graphiques) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1>🏥 Suivi Santé des Jeunes</h1>
+
+    <!-- FORMULAIRE -->
+    <form id="healthForm">
+
+        <label>Âge</label>
+        <input type="number" id="age" required>
+
+        <label>Activité physique (heures/semaine)</label>
+        <input type="number" id="sport" required>
+
+        <label>Maladie fréquente</label>
+        <input type="text" id="disease" required>
+
+        <label>Visites hôpital / mois</label>
+        <input type="number" id="hospital" required>
+
+        <button type="submit">Envoyer</button>
+
+    </form>
+
+    <!-- RESULTAT PERSONNEL -->
+    <div id="result"></div>
+
+    <!-- DASHBOARD PERSONNEL -->
+    <h2>👤 Dashboard Personnel</h2>
+    <canvas id="personalChart"></canvas>
+
+    <!-- DASHBOARD GLOBAL -->
+    <h2>🌍 Dashboard Global</h2>
+
+    <p id="userCount">Nombre d’utilisateurs : 0</p>
+
+    <canvas id="globalChart"></canvas>
+
+    <!-- JS -->
+  <script type="module" src="app.js"></script>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkCMF1LIVGZDZ0GV2lY3fwaPzzRENbA",
+    authDomain: "bien-etre-pour-tous.firebaseapp.com",
+    projectId: "bien-etre-pour-tous",
+    storageBucket: "bien-etre-pour-tous.firebasestorage.app",
+    messagingSenderId: "989433538098",
+    appId: "1:989433538098:web:ad003e5f8a4400060e7e2b",
+    measurementId: "G-RE5QC3S260"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</body>
+</html>
